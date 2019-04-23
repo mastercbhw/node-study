@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/product.css">
+    <script src="/jquery-1.10.2.min.js"></script>
+    <title>商品页面</title>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">这里是一个logo，我是logoooooo</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="javascript:;">欢迎您,<%=userInfo.name%></a></li>
+                    <li><a href="/logout">安全退出</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+<!--                    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>-->
+                    <li><a href="#">商品管理</a></li>
+                    <li><a href="#">商品列表</a></li>
+                    <li><a href="#">增加商品</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li><a href="#">分类管理</a></li>
+                    <li><a href="#">商品分类列表</a></li>
+                    <li><a href="#">商品分类增加</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <ol class="breadcrumb">
+                    <li><a href="#">商品管理</a></li>
+                    <li><a href="#">商品列表</a></li>
+                </ol>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="exampleInputName2" placeholder="商品名称">
+                            </div>
+                            <button type="submit" class="btn btn-primary">搜索</button>
+                        </form>
+                    </div>
+
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>商品名称</th>
+                            <th>价格</th>
+                            <th>数量</th>
+                            <th>图片</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i in data){ %>
+                                <tr>
+                                    <th scope="row"><%= Number(i) + Number(1) %></th>
+                                    <td><%= data[i].title %></td>
+                                    <td><%= data[i].price %></td>
+                                    <td><%= data[i].count %></td>
+                                    <td><%= data[i].pic %></td>
+                                    <td>
+                                        <a href="">修改</a> |
+                                        <a href="">删除</a>
+                                    </td>
+                                </tr>
+                            <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
