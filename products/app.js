@@ -54,7 +54,8 @@ app.get('/login', UserCtrl.showLogin)
 app.post('/login', UserCtrl.doLogin)
 app.get('/logout', UserCtrl.doLogout)
 app.get('/product', ProductCtrl.showProduct)
-app.get('/getproduct', ProductCtrl.getproduct)
+app.get('/productadd', ProductCtrl.showAddProduct)
+app.get('/deleteProduct', ProductCtrl.deleteProduct)
 
 
 
