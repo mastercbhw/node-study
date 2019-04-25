@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="javascript:;">欢迎您,<%=userInfo.name%></a></li>
-                <li><a href="/logout">安全退出</a></li>
+                <li><a href="/login/logout">安全退出</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -33,22 +33,16 @@
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <!--                    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>-->
-                <li><a href="javascript:;">商品管理</a></li>
-                <li><a href="/product">商品列表</a></li>
-                <li><a href="/productadd">增加商品</a></li>
-            </ul>
-            <ul class="nav nav-sidebar">
-                <li><a href="#">分类管理</a></li>
-                <li><a href="#">商品分类列表</a></li>
-                <li><a href="#">商品分类增加</a></li>
+                <li class="active"><a href="/product">商品列表</a></li>
+                <li><a href="/product/add">新增商品</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <ol class="breadcrumb">
                 <li><a href="#">商品管理</a></li>
-                <li><a href="#">商品列表</a></li>
+                <li><a href="#">修改商品</a></li>
             </ol>
-            <form action="/productedit" enctype="multipart/form-data" method="post">
+            <form action="/product/edit" enctype="multipart/form-data" method="post">
                 <div class="form-group hidden">
                     <label for="productName">商品ID</label>
                     <input type="text" name="id" class="form-control" id="_id" placeholder="" value="<%- data._id  %>">

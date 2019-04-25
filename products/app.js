@@ -1,4 +1,5 @@
 const express = require("express")
+const router = express.Router()
 const bodyParser = require('body-parser')
 const session = require('express-session')
 
@@ -6,8 +7,12 @@ const session = require('express-session')
 require('./config/mongoose')
 
 // ctrl
-const UserCtrl = require('./controllers/User')
-const ProductCtrl = require('./controllers/Product')
+// const UserCtrl = require('./controllers/User')
+// const ProductCtrl = require('./controllers/Product')
+
+// 引入路由
+const login = require('./routes/user.js')
+const product = require('./routes/product')
 
 const app = express()
 
@@ -28,8 +33,6 @@ app.use(session({
 	rolling: true,  // 从最后一次操作开始cookie过期计时
 }))
 
-
-
 //自定义中间件，判断登录状态
 app.use((req, res, next) => {
 	const { url } = req
@@ -47,18 +50,18 @@ app.use((req, res, next) => {
 	}
 })
 
+app.use('/login', login)
+app.use('/product', product)
 
-
-
-app.get('/login', UserCtrl.showLogin)
-app.post('/login', UserCtrl.doLogin)
-app.get('/logout', UserCtrl.doLogout)
-app.get('/product', ProductCtrl.showProduct)
-app.get('/productadd', ProductCtrl.showAddProduct)
-app.post('/productadd', ProductCtrl.productAdd)
-app.get('/productedit', ProductCtrl.showProductEdit)
-app.post('/productedit', ProductCtrl.ProductEdit)
-app.get('/deleteProduct', ProductCtrl.deleteProduct)
+// app.get('/login', UserCtrl.showLogin)
+// app.post('/login', UserCtrl.doLogin)
+// app.get('/logout', UserCtrl.doLogout)
+// app.get('/product', ProductCtrl.showProduct)
+// app.get('/productadd', ProductCtrl.showAddProduct)
+// app.post('/productadd', ProductCtrl.productAdd)
+// app.get('/productedit', ProductCtrl.showProductEdit)
+// app.post('/productedit', ProductCtrl.ProductEdit)
+// app.get('/deleteProduct', ProductCtrl.deleteProduct)
 
 
 
