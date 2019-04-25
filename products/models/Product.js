@@ -5,7 +5,9 @@ const ProductSchema = new Schema({
 	title: String,
 	price: Number,
 	count: Number,
-	pic: { type: String, default: '' }
+	pic: { type: String, default: '' },
+	desc: String,
+	picName: String,	desc: String,
 })
 
 // 静态方法
@@ -14,14 +16,21 @@ ProductSchema.statics = {
 	findProduct: function(options, cb) {
 		this.find(options).exec(cb)
 	},
-	// 修改商品
-	updateProduct: function(optoin, data, cb) {
-		this.updateOne(optoin, data).exec(cb)
+	// 新增商品
+	addProduct: function(data, cb) {
+		this.create(data, cb)
 	},
 	// 删除商品
 	deleteProduct: function(optoin, cb) {
-		this.remove(optoin).exec(cb)
+		this.deleteOne(optoin).exec(cb)
 	},
+	// 获取商品详情
+	getProductDetail: function(option, cb) {
+		this.findOne(option, cb)
+	},
+	editProduct: function(option, data, cb) {
+		this.updateOne(option, data, cb)
+	}
 }
 
 const ProductModel = mongoose.model('Product', ProductSchema);

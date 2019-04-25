@@ -76,10 +76,10 @@
                                     <td><%= data[i].title %></td>
                                     <td><%= data[i].price %></td>
                                     <td><%= data[i].count %></td>
-                                    <td><%= data[i].pic %></td>
+                                    <td><img class="picimg" src="<%- data[i].pic %>" alt=""></td>
                                     <td>
-                                        <a href="">修改</a> |
-                                        <a href="">删除</a>
+                                        <a href="/productedit?id=<%- data[i]._id %>" class="btn btn-primary">修改</a>
+                                        <a href="/deleteProduct?id=<%- data[i]._id %>" class="btn btn-danger">删除</a>
                                     </td>
                                 </tr>
                             <%}%>

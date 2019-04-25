@@ -55,11 +55,16 @@ app.post('/login', UserCtrl.doLogin)
 app.get('/logout', UserCtrl.doLogout)
 app.get('/product', ProductCtrl.showProduct)
 app.get('/productadd', ProductCtrl.showAddProduct)
+app.post('/productadd', ProductCtrl.productAdd)
+app.get('/productedit', ProductCtrl.showProductEdit)
+app.post('/productedit', ProductCtrl.ProductEdit)
 app.get('/deleteProduct', ProductCtrl.deleteProduct)
 
 
 
 app.use(express.static('public'))
+
+app.use('/upload', express.static('upload'))
 
 app.listen(3000)
 console.log('项目运行在3000端口')
