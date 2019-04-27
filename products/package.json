@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -15,6 +16,7 @@
     "express-session": "^1.16.1",
     "md5-node": "^1.0.1",
     "mongoose": "^5.5.3",
+    "multiparty": "^4.2.1",
     "supervisor": "^0.12.0"
   }
 }
