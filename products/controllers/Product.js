@@ -62,6 +62,7 @@ exports.productAdd = (req, res) => {
 				picName: files.pic[0].originalFilename,
 			}
 			Product.addProduct(data, (error, result) => {
+				console.log(error);
 				if(!error) {
 					res.redirect('/product')
 				}
